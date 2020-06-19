@@ -19,9 +19,10 @@ public class Person {
     private String lastName;
     @Column(name = "patronymic")
     private String patronymic;
-
     @Column(name = "date_birth")
     private LocalDate dateOfBirth;
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "person")
+    private BirthCertificate birthCertificate;
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "person")
     private List<Passport> passports;
 
@@ -65,6 +66,14 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public BirthCertificate getBirthCertificate() {
+        return birthCertificate;
+    }
+
+    public void setBirthCertificate(BirthCertificate birthCertificate) {
+        this.birthCertificate = birthCertificate;
+    }
+
     public List<Passport> getPassports() {
         return passports;
     }
@@ -72,4 +81,5 @@ public class Person {
     public void setPassports(List<Passport> passports) {
         this.passports = passports;
     }
+
 }
