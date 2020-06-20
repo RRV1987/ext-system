@@ -69,4 +69,5 @@ public class Passport {
     public void setIssueDepartment(String issueDepartment) {
         this.issueDepartment = issueDepartment;
     }
+
 }

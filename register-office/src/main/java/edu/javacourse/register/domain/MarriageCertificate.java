@@ -5,27 +5,26 @@ import java.time.LocalDate;
 
 @Table(name = "ro_marriage_certificate")
 @Entity
-//@NamedQueries({
-//        @NamedQuery(name = "MarriageCertificate.findMarriageCertificates",
-//        query = "SELECT mc FROM MarriageCertificate mc " +
-//                "INNER JOIN FETCH mc.husband h " +
-//                "INNER JOIN FETCH mc.wife w " +
-//                "LEFT JOIN FETCH h.passport hp " +
-//                "LEFT JOIN FETCH w.passport wp " +
-//                "WHERE " +
-//                "mc.number = :mcNumber  " +
-//                "mc.issueDate = :mcIssueDate " +
-//                "h.first_name = :hFirstName, " +
-//                "h.last_name = :hLastName, " +
-//                "h.patronymic = :hPatronymic, " +
-//                "h.dateOFBirth = :hDateOfBirth, " +
-//                "h.first_name = :hFirstName, " +
-//                "h.last_name = :hLastName, " +
-//                "h.patronymic = :hPatronymic, " +
-//                "h.dateOFBirth = :hDateOfBirth, "
-//
-//        )
-//})
+@NamedQueries({
+        @NamedQuery(name = "MarriageCertificate.findMarriageCertificates",
+        query = "SELECT mc FROM MarriageCertificate mc " +
+                "INNER JOIN FETCH mc.husband h " +
+                "INNER JOIN FETCH mc.wife w " +
+                "LEFT JOIN h.passports hps " +
+                "LEFT JOIN w.passports wps " +
+                "WHERE " +
+                "mc.number = :mcNumber and " +
+                "mc.issueDate = :mcIssueDate and " +
+                "h.firstName = :hFirstName and " +
+                "h.lastName = :hLastName and " +
+                "h.patronymic = :hPatronymic and " +
+                "h.dateOfBirth = :hDateOfBirth  and " +
+                "w.firstName = :wFirstName and " +
+                "w.lastName = :wLastName and " +
+                "w.patronymic = :wPatronymic and " +
+                "w.dateOfBirth = :wDateOfBirth"
+        )
+})
 public class MarriageCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -101,4 +100,5 @@ public class MarriageCertificate {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
 }

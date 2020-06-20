@@ -11,7 +11,7 @@ public class MarriageRequest implements Serializable {
     private String husbandPassportSerial;
     private String husbandPassportNumber;
     private LocalDate husbandPassportIssueDate;
-    private String Surname;
+    private String wifeSurname;
     private String wifeGivenname;
     private String wifePatronymic;
     private LocalDate wifeDateOfBirth;
@@ -78,12 +78,12 @@ public class MarriageRequest implements Serializable {
         this.husbandPassportIssueDate = husbandPassportIssueDate;
     }
 
-    public String getSurname() {
-        return Surname;
+    public String getWifeSurname() {
+        return wifeSurname;
     }
 
-    public void setSurname(String surname) {
-        Surname = surname;
+    public void setWifeSurname(String wifeSurname) {
+        this.wifeSurname = wifeSurname;
     }
 
     public String getWifeGivenname() {
