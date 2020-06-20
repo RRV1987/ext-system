@@ -5,6 +5,27 @@ import java.time.LocalDate;
 
 @Table(name = "ro_marriage_certificate")
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "MarriageCertificate.findMarriageCertificates",
+        query = "SELECT mc FROM MarriageCertificate mc " +
+                "INNER JOIN FETCH mc.husband h " +
+                "INNER JOIN FETCH mc.wife w " +
+                "LEFT JOIN FETCH h.passport hp " +
+                "LEFT JOIN FETCH w.passport wp " +
+                "WHERE " +
+                "mc.number = :mcNumber  " +
+                "mc.issueDate = :mcIssueDate " +
+                "h.first_name = :hFirstName, " +
+                "h.last_name = :hLastName, " +
+                "h.patronymic = :hPatronymic, " +
+                "h.dateOFBirth = :hDateOfBirth, " +
+                "h.first_name = :hFirstName, " +
+                "h.last_name = :hLastName, " +
+                "h.patronymic = :hPatronymic, " +
+                "h.dateOFBirth = :hDateOfBirth, "
+
+        )
+})
 public class MarriageCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
