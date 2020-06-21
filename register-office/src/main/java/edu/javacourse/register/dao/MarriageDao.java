@@ -1,46 +1,10 @@
 package edu.javacourse.register.dao;
 
 import edu.javacourse.register.domain.MarriageCertificate;
-import edu.javacourse.register.view.MarriageRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.*;
-
-@Component
-public class MarriageDao {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
-
-    @PersistenceContext
-    private EntityManager entityManager;
-    @Value("${test.value}")
-    private String test;
-
-    public void setTest(String test) {
-        this.test = test;
-    }
-
-    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("findMarriageCertificate called:{}", test);
-//        return null;
-
-        TypedQuery<MarriageCertificate> query = entityManager.createNamedQuery(
-                "MarriageCertificate.findMarriageCertificates", MarriageCertificate.class);
-        query.setParameter("mcNumber", request.getMarriageCertificateNumber());
-        query.setParameter("mcIssueDate", request.getMarriageCertificateDate());
-        query.setParameter("hFirstName", request.getHusbandGivenname());
-        query.setParameter("hLastName", request.getHusbandSurname());
-        query.setParameter("hPatronymic", request.getHusbandPatronymic());
-        query.setParameter("hDateOfBirth", request.getHusbandDateOfBirth());
-        query.setParameter("wFirstName", request.getWifeGivenname());
-        query.setParameter("wLastName", request.getWifeSurname());
-        query.setParameter("wPatronymic", request.getWifePatronymic());
-        query.setParameter("wDateOfBirth", request.getWifeDateOfBirth());
-        return query.getSingleResult();
-    }
+@Repository
+public interface MarriageDao extends JpaRepository<MarriageCertificate, Long> {
 
 }
