@@ -14,18 +14,18 @@ public class Starter {
                 new String[]{"springContext.xml"}
         );
         //MarriageController controller = context.getBean(MarriageController.class);
-        MarriageController controller = context.getBean("controller", MarriageController.class);
-        MarriageRequest request = new MarriageRequest();
-        request.setMarriageCertificateNumber("152 Marriage");
-        request.setMarriageCertificateDate(LocalDate.of(2017,9,3));
-        request.setHusbandSurname("Васильев");
-        request.setHusbandGivenname("Олег");
-        request.setHusbandPatronymic("Петрович");
-        request.setHusbandDateOfBirth(LocalDate.of(1997,10,16));
-        request.setWifeSurname("Васильева");
-        request.setWifeGivenname("Елена");
-        request.setWifePatronymic("Сергеевна");
-        request.setWifeDateOfBirth(LocalDate.of(1998,3,24));
-        controller.findMarriageCertificate(request);
+//        MarriageController controller = context.getBean("controller", MarriageController.class);
+//        MarriageRequest request = new MarriageRequest();
+//        request.setMarriageCertificateNumber("152 Marriage");
+//        request.setMarriageCertificateDate(LocalDate.of(2017,9,3));
+//        request.setHusbandSurname("Васильев");
+//        request.setHusbandGivenname("Олег");
+//        request.setHusbandPatronymic("Петрович");
+//        request.setHusbandDateOfBirth(LocalDate.of(1997,10,16));
+//        request.setWifeSurname("Васильева");
+//        request.setWifeGivenname("Елена");
+//        request.setWifePatronymic("Сергеевна");
+//        request.setWifeDateOfBirth(LocalDate.of(1998,3,24));
+//        controller.findMarriageCertificate(request);
     }
 }
