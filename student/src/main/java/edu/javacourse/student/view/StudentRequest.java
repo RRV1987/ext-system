@@ -1,41 +1,19 @@
-package edu.javacourse.student.domain;
+package edu.javacourse.student.view;
 
-import javax.persistence.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
-import java.util.List;
 
-@Table(name="sr_student")
-@Entity
-public class Student {
+public class StudentRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
-    private long studentId;
-    @Column(name = "last_name")
     private String lastName;
-    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "middle_name")
     private String middleName;
-    @Column(name = "date_of_birth")
-    private String dateOfBirth;
-    @Column(name = "passport_seria")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+    private LocalDate dateOfBirth;
     private String passportSeria;
-    @Column(name = "passport_number")
     private String passportNumber;
-    @Column(name = "passport_date")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate passportDate;
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "student")
-    private List<StudentDocument> documents;
-
-    public long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(long studentId) {
-        this.studentId = studentId;
-    }
 
     public String getLastName() {
         return lastName;
@@ -44,7 +22,6 @@ public class Student {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getFirstName() {
         return firstName;
     }
@@ -61,11 +38,11 @@ public class Student {
         this.middleName = middleName;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -91,13 +68,5 @@ public class Student {
 
     public void setPassportDate(LocalDate passportDate) {
         this.passportDate = passportDate;
-    }
-
-    public List<StudentDocument> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<StudentDocument> documents) {
-        this.documents = documents;
     }
 }
