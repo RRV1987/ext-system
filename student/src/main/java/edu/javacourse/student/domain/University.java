@@ -1,4 +1,4 @@
-package edu.javacource.student.domain;
+package edu.javacourse.student.domain;
 
 import javax.persistence.*;
 import java.util.List;
