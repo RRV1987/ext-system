@@ -19,7 +19,7 @@ public class Student {
     @Column(name = "middle_name")
     private String middleName;
     @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     @Column(name = "passport_seria")
     private String passportSeria;
     @Column(name = "passport_number")
@@ -61,11 +61,11 @@ public class Student {
         this.middleName = middleName;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

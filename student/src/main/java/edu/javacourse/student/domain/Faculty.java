@@ -9,19 +9,19 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "faculty_id")
-    private Long id;
+    private Long facultyId;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
     private University university;
     @Column(name = "faculty_name")
     private String facultyName;
 
-    public Long getId() {
-        return id;
+    public Long getFacultyId() {
+        return facultyId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFacultyId(Long facultyId) {
+        this.facultyId = facultyId;
     }
 
     public University getUniversity() {
