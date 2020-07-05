@@ -86,6 +86,12 @@
             <version>${javaee.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
         <!-- Hibernte  -->
         <dependency>
             <groupId>org.hibernate</groupId>
